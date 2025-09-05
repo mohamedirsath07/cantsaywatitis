@@ -5,6 +5,8 @@ import Profile from './pages/Profile';
 import Quiz from './pages/Quiz';
 import Results from './pages/ResultsPage';
 import Dashboard from './pages/Dashboard';
+import Auth from './pages/Auth';
+import ProfileEdit from './pages/ProfileEdit';
 
 // Main app component that handles routing
 const AppContent = () => {
@@ -18,10 +20,14 @@ const AppContent = () => {
         return <Profile />;
       case 'quiz':
         return <Quiz />;
+      case 'auth':
+        return <Auth />;
       case 'results':
         return <Results />;
       case 'dashboard':
         return <Dashboard />;
+      case 'profileEdit':
+        return <ProfileEdit />;
       default:
         return <Welcome />;
     }

@@ -6,6 +6,13 @@ const initialState = {
     name: '',
     class: '',
     interests: [],
+    email: '',
+    dateOfBirth: '',
+    education: '',
+    location: '',
+    mobile: '',
+    profilePicture: '',
+    loginMethod: 'email', // 'email', 'Google', 'Facebook'
     isLoggedIn: false
   },
   quizResults: {

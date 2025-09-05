@@ -48,6 +48,90 @@ const Dashboard = () => {
   return (
     <Layout title="Dashboard" showProgress={true}>
       <div className="space-y-8">
+        {/* Enhanced User Profile Section */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {/* Profile Card */}
+          <Card>
+            <div className="text-center">
+              {user.profilePicture ? (
+                <img 
+                  src={user.profilePicture} 
+                  alt={user.name}
+                  className="w-24 h-24 rounded-full mx-auto object-cover border-4 border-blue-200 mb-4"
+                />
+              ) : (
+                <div className="w-24 h-24 rounded-full mx-auto bg-blue-100 flex items-center justify-center mb-4">
+                  <span className="text-3xl">👤</span>
+                </div>
+              )}
+              <h2 className="text-xl font-bold text-gray-900 mb-2">{user.name}</h2>
+              <p className="text-gray-600 text-sm mb-4">{user.education}</p>
+              <Button 
+                onClick={() => actions.setCurrentPage('profileEdit')}
+                className="btn-outline text-sm"
+              >
+                <span className="emoji">✏️</span>
+                Edit Profile
+              </Button>
+            </div>
+          </Card>
+
+          {/* Contact Info */}
+          <Card>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">📧 Contact Information</h3>
+            <div className="space-y-3 text-sm">
+              <div className="flex items-center">
+                <span className="emoji">✉️</span>
+                <span className="ml-2 text-gray-700">{user.email}</span>
+              </div>
+              <div className="flex items-center">
+                <span className="emoji">📱</span>
+                <span className="ml-2 text-gray-700">{user.mobile}</span>
+              </div>
+              <div className="flex items-center">
+                <span className="emoji">📍</span>
+                <span className="ml-2 text-gray-700">{user.location}</span>
+              </div>
+              <div className="flex items-center">
+                <span className="emoji">🎂</span>
+                <span className="ml-2 text-gray-700">
+                  {user.dateOfBirth ? new Date(user.dateOfBirth).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  }) : 'Not provided'}
+                </span>
+              </div>
+            </div>
+          </Card>
+
+          {/* Quiz Progress */}
+          <Card>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">🎯 Your Progress</h3>
+            <div className="space-y-3">
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span>Profile Completion</span>
+                  <span>{progress}%</span>
+                </div>
+                <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div 
+                    className="bg-blue-500 h-2 rounded-full transition-all duration-300"
+                    style={{ width: `${progress}%` }}
+                  ></div>
+                </div>
+              </div>
+              <div className="pt-2">
+                <p className="text-sm text-gray-600">
+                  <strong>Interests:</strong> {user.interests.length} selected
+                </p>
+                <p className="text-sm text-gray-600">
+                  <strong>Quiz Status:</strong> {quizResults.completed ? '✅ Completed' : '⏳ Pending'}
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
         {/* Welcome Header */}
         <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900 mb-2">

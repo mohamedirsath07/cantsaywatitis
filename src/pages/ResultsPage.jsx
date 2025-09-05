@@ -163,23 +163,69 @@ const Results = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4">
-          <Button 
-            onClick={handleViewDashboard}
-            className="flex-1"
-            size="lg"
-            icon="📊"
-          >
-            View Dashboard
-          </Button>
-          <Button 
-            onClick={handleRetakeQuiz}
-            variant="outline"
-            className="flex-1"
-            size="lg"
-          >
-            Retake Quiz
-          </Button>
+          {!user.isLoggedIn ? (
+            <>
+              <Button 
+                onClick={() => actions.setCurrentPage('auth')}
+                className="flex-1 btn-primary"
+                size="lg"
+              >
+                <span className="emoji">🔐</span>
+                Create Account to Save Results
+              </Button>
+              <Button 
+                onClick={handleRetakeQuiz}
+                variant="outline"
+                className="flex-1"
+                size="lg"
+              >
+                <span className="emoji">🔄</span>
+                Retake Quiz
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button 
+                onClick={handleViewDashboard}
+                className="flex-1"
+                size="lg"
+                icon="📊"
+              >
+                View Dashboard
+              </Button>
+              <Button 
+                onClick={handleRetakeQuiz}
+                variant="outline"
+                className="flex-1"
+                size="lg"
+              >
+                Retake Quiz
+              </Button>
+            </>
+          )}
         </div>
+
+        {/* Save Results Prompt for Non-Logged Users */}
+        {!user.isLoggedIn && (
+          <Card className="bg-blue-50 border-blue-200 mt-6">
+            <div className="text-center">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">
+                💡 Don't Lose Your Results!
+              </h3>
+              <p className="text-blue-800 mb-4">
+                Create a free account to save your quiz results, track your progress, 
+                and get personalized recommendations for colleges and scholarships.
+              </p>
+              <Button 
+                onClick={() => actions.setCurrentPage('auth')}
+                className="btn-primary"
+              >
+                <span className="emoji">🚀</span>
+                Create Free Account
+              </Button>
+            </div>
+          </Card>
+        )}
 
         {/* Encouragement Message */}
         <div className="text-center mt-8">

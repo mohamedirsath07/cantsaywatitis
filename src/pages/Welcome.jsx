@@ -8,7 +8,7 @@ const Welcome = () => {
   const { actions } = useApp();
 
   const handleGetStarted = () => {
-    actions.setCurrentPage('profile');
+    actions.setCurrentPage('auth');
   };
 
   const features = [

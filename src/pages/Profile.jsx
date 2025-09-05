@@ -159,14 +159,12 @@ const Profile = () => {
                     key={option.value}
                     type="button"
                     onClick={() => handleInterestToggle(option.value)}
-                    className={`flex flex-col items-center p-3 border-2 rounded-lg transition-all ${
-                      formData.interests.includes(option.value)
-                        ? 'border-blue-500 bg-blue-50 text-blue-700'
-                        : 'border-gray-200 hover:border-gray-300'
+                    className={`interest-btn ${
+                      formData.interests.includes(option.value) ? 'selected' : ''
                     }`}
                   >
-                    <span className="text-2xl mb-1">{option.icon}</span>
-                    <span className="text-sm font-medium">{option.label}</span>
+                    <span className="emoji">{option.icon}</span>
+                    <span className="interest-label">{option.label}</span>
                   </button>
                 ))}
               </div>

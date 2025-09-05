@@ -33,10 +33,16 @@ const Quiz = () => {
     setAnswers(updatedAnswers);
 
     if (isLastQuestion) {
-      // Calculate results and move to results page
+      // Calculate results and check if user is logged in
       const results = calculateQuizResults(updatedAnswers);
       actions.setQuizResults(results);
-      actions.setCurrentPage('results');
+      
+      // If user is not logged in, redirect to auth page to save results
+      if (!state.user.isLoggedIn) {
+        actions.setCurrentPage('auth');
+      } else {
+        actions.setCurrentPage('results');
+      }
     } else {
       // Move to next question
       setCurrentQuestion(currentQuestion + 1);
@@ -115,50 +121,36 @@ const Quiz = () => {
           <div className="space-y-4 mb-8">
             <button
               onClick={() => handleAnswerSelect('yes')}
-              className={`w-full p-6 border-2 rounded-xl text-left transition-all ${
-                selectedAnswer === 'yes'
-                  ? 'border-green-500 bg-green-50 text-green-700'
-                  : 'border-gray-200 hover:border-gray-300'
+              className={`quiz-answer-btn yes ${
+                selectedAnswer === 'yes' ? 'selected' : ''
               }`}
             >
               <div className="flex items-center">
-                <div className={`w-6 h-6 rounded-full border-2 mr-4 ${
-                  selectedAnswer === 'yes'
-                    ? 'border-green-500 bg-green-500'
-                    : 'border-gray-300'
+                <div className={`quiz-radio ${
+                  selectedAnswer === 'yes' ? 'selected' : ''
                 }`}>
-                  {selectedAnswer === 'yes' && (
-                    <div className="w-full h-full rounded-full bg-white m-0.5"></div>
-                  )}
                 </div>
                 <div>
-                  <div className="font-semibold">Yes, that's me! ✅</div>
-                  <div className="text-sm text-gray-600">This describes me well</div>
+                  <div className="quiz-answer-title">Yes, that's me! ✅</div>
+                  <div className="quiz-answer-subtitle">This describes me well</div>
                 </div>
               </div>
             </button>
 
             <button
               onClick={() => handleAnswerSelect('no')}
-              className={`w-full p-6 border-2 rounded-xl text-left transition-all ${
-                selectedAnswer === 'no'
-                  ? 'border-red-500 bg-red-50 text-red-700'
-                  : 'border-gray-200 hover:border-gray-300'
+              className={`quiz-answer-btn no ${
+                selectedAnswer === 'no' ? 'selected' : ''
               }`}
             >
               <div className="flex items-center">
-                <div className={`w-6 h-6 rounded-full border-2 mr-4 ${
-                  selectedAnswer === 'no'
-                    ? 'border-red-500 bg-red-500'
-                    : 'border-gray-300'
+                <div className={`quiz-radio ${
+                  selectedAnswer === 'no' ? 'selected' : ''
                 }`}>
-                  {selectedAnswer === 'no' && (
-                    <div className="w-full h-full rounded-full bg-white m-0.5"></div>
-                  )}
                 </div>
                 <div>
-                  <div className="font-semibold">No, not really ❌</div>
-                  <div className="text-sm text-gray-600">This doesn't describe me</div>
+                  <div className="quiz-answer-title">No, not really ❌</div>
+                  <div className="quiz-answer-subtitle">This doesn't describe me</div>
                 </div>
               </div>
             </button>

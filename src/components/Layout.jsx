@@ -3,11 +3,23 @@ import { useApp } from '../context/AppContext';
 import { getUserProgress, getUserBadge } from '../utils/quizUtils';
 
 const Layout = ({ children, title, showProgress = false }) => {
-  const { state } = useApp();
+  const { state, actions } = useApp();
   const { user, quizResults } = state;
   
   const progress = getUserProgress(user, quizResults);
   const badge = getUserBadge(progress);
+
+  const handleLogoClick = () => {
+    if (user.isLoggedIn) {
+      actions.setCurrentPage('dashboard');
+    } else {
+      actions.setCurrentPage('welcome');
+    }
+  };
+
+  const handleProfileClick = () => {
+    actions.setCurrentPage('profileEdit');
+  };
 
   return (
     <div className="min-h-screen" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
@@ -15,7 +27,11 @@ const Layout = ({ children, title, showProgress = false }) => {
       <header className="header">
         <div className="header-content">
           <div className="flex items-center" style={{ gap: '0.75rem' }}>
-            <div className="logo">
+            <div 
+              className="logo" 
+              onClick={handleLogoClick}
+              style={{ cursor: 'pointer', userSelect: 'none' }}
+            >
               🎓 CareerCompass
             </div>
             {title && (
@@ -60,7 +76,18 @@ const Layout = ({ children, title, showProgress = false }) => {
                 }}>
                   {badge.icon}
                 </div>
-                <div style={{ fontSize: '0.875rem' }}>
+                <div 
+                  onClick={handleProfileClick}
+                  style={{ 
+                    fontSize: '0.875rem', 
+                    cursor: 'pointer',
+                    padding: '0.25rem',
+                    borderRadius: '0.25rem',
+                    transition: 'background-color 0.2s'
+                  }}
+                  onMouseEnter={(e) => e.target.style.backgroundColor = 'rgba(59, 130, 246, 0.1)'}
+                  onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+                >
                   <div className="font-medium text-gray-900">{user.name}</div>
                   <div className="text-gray-600" style={{ fontSize: '0.75rem' }}>{badge.name}</div>
                 </div>
