@@ -114,16 +114,9 @@ const Results = () => {
                   <p className="text-gray-600 mb-3">Duration: {degree.duration}</p>
                   <div>
                     <p className="font-medium text-gray-700 mb-2">Career Options:</p>
-                    <div className="flex flex-wrap gap-2">
-                      {degree.careers.map((career, idx) => (
-                        <span 
-                          key={idx}
-                          className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm"
-                        >
-                          {career}
-                        </span>
-                      ))}
-                    </div>
+                    <p className="text-gray-600">
+                      {degree.careers.join(', ')}
+                    </p>
                   </div>
                 </div>
               ))}
