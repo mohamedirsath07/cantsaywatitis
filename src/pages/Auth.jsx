@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { useApp } from '../context/AppContext';
@@ -117,8 +116,8 @@ const Auth = () => {
   };
 
   return (
-    <Layout title={showForgotPassword ? "Reset Password" : (isSignUp ? "Create Account" : "Sign In")}>
-      <div className="max-w-md mx-auto">
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
+      <div className="max-w-md mx-auto px-4">
         <Card>
           <div className="text-center mb-6">
             <div className="text-3xl mb-2">
@@ -290,7 +289,7 @@ const Auth = () => {
           )}
         </Card>
       </div>
-    </Layout>
+    </div>
   );
 };
 

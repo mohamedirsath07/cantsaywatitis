@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { useApp } from '../context/AppContext';
@@ -35,10 +34,10 @@ const Welcome = () => {
   ];
 
   return (
-    <Layout>
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
       <div className="text-center">
         {/* Hero Section */}
-        <div style={{ maxWidth: '64rem', margin: '0 auto' }}>
+        <div style={{ maxWidth: '64rem', margin: '0 auto', padding: '0 1rem' }}>
           <div className="mb-8">
             <h1 className="text-5xl font-bold text-gray-900 mb-4">
               Your Journey to the 
@@ -183,7 +182,7 @@ const Welcome = () => {
           </div>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 

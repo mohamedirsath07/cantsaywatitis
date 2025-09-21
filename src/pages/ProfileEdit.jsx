@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { useApp } from '../context/AppContext';
@@ -296,7 +295,7 @@ const ProfileEdit = () => {
   };
 
   return (
-    <Layout title="Edit Profile">
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
       <div className="max-w-6xl mx-auto px-4">
         <Card>
           <div className="text-center mb-8">
@@ -551,7 +550,7 @@ const ProfileEdit = () => {
             </div>
 
             {/* Submit Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row gap-8 pt-6">
               <Button 
                 type="submit"
                 className="flex-1"
@@ -603,7 +602,7 @@ const ProfileEdit = () => {
           </div>
         </Card>
       </div>
-    </Layout>
+    </div>
   );
 };
 

@@ -1,0 +1,122 @@
+State,District,College Name,Location,Stream,Affiliation,Established,Fee,Seats,Marks Required,Management Type
+Tamil Nadu,Coimbatore,Government College of Technology,Coimbatore,B.Tech/B.E,Anna University,1945,₹50000/year,900,null,Government
+Tamil Nadu,Sivaganga,Alagappa Chettiar College of Engineering and Technology,Karaikudi,B.Tech/B.E,Anna University,1952,₹45000/year,800,null,Government
+Tamil Nadu,Salem,Government College of Engineering,Salem,B.Tech/B.E,Anna University,1966,₹45000/year,600,null,Government
+Tamil Nadu,Tirunelveli,Government College of Engineering,Tirunelveli,B.Tech/B.E,Anna University,1981,₹45000/year,600,null,Government
+Tamil Nadu,Erode,Government College of Engineering,Erode,B.Tech/B.E,Anna University,1984,₹45000/year,540,null,Government
+Tamil Nadu,Vellore,Thanthai Periyar Government Institute of Technology,Vellore,B.Tech/B.E,Anna University,1990,₹45000/year,480,null,Government
+Tamil Nadu,Krishnagiri,Government College of Engineering,Bargur,B.Tech/B.E,Anna University,1994,₹45000/year,540,null,Government
+Tamil Nadu,Thanjavur,Government College of Engineering,Thanjavur,B.Tech/B.E,Anna University,2012,₹45000/year,480,null,Government
+Tamil Nadu,Theni,Government College of Engineering,Bodinayakkanur,B.Tech/B.E,Anna University,2012,₹45000/year,360,null,Government
+Tamil Nadu,Dharmapuri,Government College of Engineering,Dharmapuri,B.Tech/B.E,Anna University,2013,₹45000/year,480,null,Government
+Tamil Nadu,Tiruchirappalli,Government College of Engineering,Srirangam,B.Tech/B.E,Anna University,2013,₹45000/year,480,null,Government
+Tamil Nadu,Madurai,AIIMS Madurai,Madurai,MBBS,AIIMS,2021,₹5000/year,50,null,Government
+Tamil Nadu,Chennai,Madras Medical College,Chennai,MBBS,TN Dr.MGR Medical University,1835,₹10000/year,250,null,Government
+Tamil Nadu,Chennai,Stanley Medical College,Chennai,MBBS,TN Dr.MGR Medical University,1838,₹10000/year,250,null,Government
+Tamil Nadu,Chennai,Kilpauk Medical College,Chennai,MBBS,TN Dr.MGR Medical University,1960,₹10000/year,150,null,Government
+Tamil Nadu,Madurai,Madurai Medical College,Madurai,MBBS,TN Dr.MGR Medical University,1954,₹10000/year,250,null,Government
+Tamil Nadu,Coimbatore,Coimbatore Medical College,Coimbatore,MBBS,TN Dr.MGR Medical University,1966,₹10000/year,200,null,Government
+Tamil Nadu,Thanjavur,Thanjavur Medical College,Thanjavur,MBBS,TN Dr.MGR Medical University,1959,₹10000/year,150,null,Government
+Tamil Nadu,Tirunelveli,Tirunelveli Medical College,Tirunelveli,MBBS,TN Dr.MGR Medical University,1965,₹10000/year,250,null,Government
+Tamil Nadu,Vellore,Government Vellore Medical College,Vellore,MBBS,TN Dr.MGR Medical University,2005,₹10000/year,100,null,Government
+Tamil Nadu,Salem,Government Mohan Kumaramangalam Medical College,Salem,MBBS,TN Dr.MGR Medical University,1986,₹10000/year,100,null,Government
+Karnataka,Surathkal,National Institute of Technology Karnataka,Surathkal,B.Tech/B.E,NIT Surathkal,1960,₹5.5 Lakhs,909,null,Central Government
+Karnataka,Bangalore,University Visvesvaraya College of Engineering,Bangalore,B.Tech/B.E,Bangalore University,1917,₹25000/year,780,null,Government
+Karnataka,Bangalore,BMS College of Engineering,Bangalore,B.Tech/B.E,VTU Belgavi,1946,₹30000/year,1080,null,Government
+Karnataka,Mysore,SJCE Mysore,Mysore,B.Tech/B.E,JSS Science and Technology University,1963,₹40000/year,720,null,Government
+Karnataka,Tumkur,Siddaganga Institute of Technology,Tumkur,B.Tech/B.E,VTU Belgavi,1963,₹45000/year,600,null,Government
+Karnataka,Bangalore,Bangalore Medical College and Research Institute,Bangalore,MBBS,RGUHS,1955,₹15000/year,250,null,Government
+Karnataka,Mysore,Mysore Medical College and Research Institute,Mysore,MBBS,RGUHS,1924,₹15000/year,200,null,Government
+Karnataka,Hubli,Karnataka Institute of Medical Sciences,Hubli,MBBS,RGUHS,1957,₹15000/year,150,null,Government
+Karnataka,Belgaum,Belgaum Institute of Medical Sciences,Belgaum,MBBS,RGUHS,1963,₹15000/year,150,null,Government
+Karnataka,Bellary,Vijaynagar Institute of Medical Sciences,Bellary,MBBS,RGUHS,1958,₹15000/year,150,null,Government
+Karnataka,Gulbarga,Gulbarga Institute of Medical Sciences,Gulbarga,MBBS,RGUHS,1980,₹15000/year,150,null,Government
+Karnataka,Mandya,Mandya Institute of Medical Sciences,Mandya,MBBS,RGUHS,1986,₹15000/year,100,null,Government
+Karnataka,Hassan,Hassan Institute of Medical Sciences,Hassan,MBBS,RGUHS,1973,₹15000/year,100,null,Government
+Karnataka,Shimoga,Shimoga Institute of Medical Sciences,Shimoga,MBBS,RGUHS,1981,₹15000/year,100,null,Government
+Karnataka,Bangalore,ESIC Medical College and PGIMSR,Bangalore,MBBS,RGUHS,2010,₹10000/year,150,null,Government
+Maharashtra,Mumbai,Indian Institute of Technology Bombay,Mumbai,B.Tech/B.E,IIT Bombay,1958,₹8.5 Lakhs,1360,null,Central Government
+Maharashtra,Mumbai,Institute of Chemical Technology,Mumbai,B.Tech/B.E,ICT Mumbai,1933,₹40000/year,480,null,Government
+Maharashtra,Mumbai,Veermata Jijabai Technological Institute,Mumbai,B.Tech/B.E,Mumbai University,1887,₹45000/year,720,null,Government
+Maharashtra,Nagpur,Visvesvaraya National Institute of Technology,Nagpur,B.Tech/B.E,VNIT Nagpur,1960,₹5.5 Lakhs,965,null,Central Government
+Maharashtra,Pune,College of Engineering Pune,Pune,B.Tech/B.E,Pune University,1854,₹40000/year,1050,null,Government
+Maharashtra,Aurangabad,Government College of Engineering,Aurangabad,B.Tech/B.E,Dr. Babasaheb Ambedkar Marathwada University,1960,₹35000/year,600,null,Government
+Maharashtra,Amravati,Government College of Engineering,Amravati,B.Tech/B.E,Sant Gadge Baba Amravati University,1964,₹35000/year,390,null,Government
+Maharashtra,Nagpur,AIIMS Nagpur,Nagpur,MBBS,AIIMS,2018,₹5000/year,125,null,Central Government
+Maharashtra,Mumbai,Seth G.S. Medical College,Mumbai,MBBS,Mumbai University,1926,₹20000/year,260,null,Government
+Maharashtra,Mumbai,King Edward Memorial Hospital,Mumbai,MBBS,Mumbai University,1926,₹20000/year,250,null,Government
+Maharashtra,Mumbai,Lokmanya Tilak Municipal Medical College,Mumbai,MBBS,Mumbai University,1946,₹20000/year,180,null,Government
+Maharashtra,Mumbai,Topiwala National Medical College,Mumbai,MBBS,Mumbai University,1946,₹20000/year,200,null,Government
+Maharashtra,Pune,Armed Forces Medical College,Pune,MBBS,AFMC,1948,null,130,null,Central Government
+Maharashtra,Pune,B.J. Government Medical College,Pune,MBBS,Pune University,1878,₹18000/year,200,null,Government
+Maharashtra,Nagpur,Government Medical College,Nagpur,MBBS,Nagpur University,1946,₹18000/year,250,null,Government
+Maharashtra,Aurangabad,Government Medical College,Aurangabad,MBBS,Maharashtra University of Health Sciences,1956,₹18000/year,150,null,Government
+Uttar Pradesh,Kanpur,Indian Institute of Technology Kanpur,Kanpur,B.Tech/B.E,IIT Kanpur,1959,₹8.5 Lakhs,1100,null,Central Government
+Uttar Pradesh,Varanasi,Indian Institute of Technology (BHU),Varanasi,B.Tech/B.E,IIT BHU,1919,₹8.5 Lakhs,1200,null,Central Government
+Uttar Pradesh,Allahabad,Motilal Nehru National Institute of Technology,Allahabad,B.Tech/B.E,NIT Allahabad,1961,₹5.5 Lakhs,840,null,Central Government
+Uttar Pradesh,Lucknow,Dr. A.P.J. Abdul Kalam Technical University,Lucknow,B.Tech/B.E,AKTU,2000,₹40000/year,5000+,null,Government
+Uttar Pradesh,Lucknow,Institute of Engineering and Technology,Lucknow,B.Tech/B.E,AKTU,1984,₹35000/year,480,null,Government
+Uttar Pradesh,Gorakhpur,All India Institute of Medical Sciences,Gorakhpur,MBBS,AIIMS,2019,₹5000/year,125,null,Central Government
+Uttar Pradesh,Rae Bareli,All India Institute of Medical Sciences,Rae Bareli,MBBS,AIIMS,2019,₹5000/year,100,null,Central Government
+Uttar Pradesh,Lucknow,King George Medical University,Lucknow,MBBS,KGMU,1911,₹15000/year,250,null,Government
+Uttar Pradesh,Lucknow,Dr. Ram Manohar Lohia Institute of Medical Sciences,Lucknow,MBBS,KGMU,2017,₹15000/year,200,null,Government
+Uttar Pradesh,Kanpur,Ganesh Shankar Vidyarthi Memorial Medical College,Kanpur,MBBS,CSJM University,1955,₹15000/year,250,null,Government
+Uttar Pradesh,Agra,Sarojini Naidu Medical College,Agra,MBBS,Dr. B.R. Ambedkar University,1939,₹15000/year,200,null,Government
+Uttar Pradesh,Allahabad,Motilal Nehru Medical College,Allahabad,MBBS,KGMU,1961,₹15000/year,200,null,Government
+Uttar Pradesh,Meerut,Lala Lajpat Rai Memorial Medical College,Meerut,MBBS,Chaudhary Charan Singh University,1966,₹15000/year,150,null,Government
+Uttar Pradesh,Jhansi,Maharani Laxmi Bai Medical College,Jhansi,MBBS,Bundelkhand University,1968,₹15000/year,150,null,Government
+Uttar Pradesh,Gorakhpur,BRD Medical College,Gorakhpur,MBBS,Deen Dayal Upadhyay Gorakhpur University,1972,₹15000/year,150,null,Government
+West Bengal,Kharagpur,Indian Institute of Technology Kharagpur,Kharagpur,B.Tech/B.E,IIT Kharagpur,1951,₹8.5 Lakhs,1500,null,Central Government
+West Bengal,Durgapur,National Institute of Technology Durgapur,Durgapur,B.Tech/B.E,NIT Durgapur,1960,₹5.5 Lakhs,840,null,Central Government
+West Bengal,Kolkata,Jadavpur University Faculty of Engineering,Kolkata,B.Tech/B.E,Jadavpur University,1955,₹15000/year,900,null,Government
+West Bengal,Kolkata,Bengal Engineering and Science University,Shibpur,B.Tech/B.E,IIEST Shibpur,1856,₹50000/year,1050,null,Central Government
+West Bengal,Kolkata,Government College of Engineering and Ceramic Technology,Kolkata,B.Tech/B.E,MAKAUT,1941,₹25000/year,540,null,Government
+West Bengal,Kolkata,Medical College and Hospital,Kolkata,MBBS,West Bengal University of Health Sciences,1835,₹12000/year,250,null,Government
+West Bengal,Kolkata,R.G. Kar Medical College,Kolkata,MBBS,West Bengal University of Health Sciences,1886,₹12000/year,200,null,Government
+West Bengal,Kolkata,Calcutta National Medical College,Kolkata,MBBS,West Bengal University of Health Sciences,1948,₹12000/year,150,null,Government
+West Bengal,Murshidabad,Murshidabad Medical College,Berhampore,MBBS,West Bengal University of Health Sciences,1978,₹12000/year,100,null,Government
+West Bengal,Burdwan,Burdwan Medical College,Burdwan,MBBS,West Bengal University of Health Sciences,1973,₹12000/year,150,null,Government
+Rajasthan,Jodhpur,Indian Institute of Technology Jodhpur,Jodhpur,B.Tech/B.E,IIT Jodhpur,2008,₹8.5 Lakhs,450,null,Central Government
+Rajasthan,Jaipur,Malaviya National Institute of Technology,Jaipur,B.Tech/B.E,NIT Jaipur,1963,₹5.5 Lakhs,840,null,Central Government
+Rajasthan,Jaipur,College of Technology and Engineering,Udaipur,B.Tech/B.E,CTAE Udaipur,1959,₹40000/year,600,null,Government
+Rajasthan,Kota,Government Engineering College,Kota,B.Tech/B.E,Rajasthan Technical University,1997,₹35000/year,480,null,Government
+Rajasthan,Jodhpur,Jai Narain Vyas University Engineering College,Jodhpur,B.Tech/B.E,Jai Narain Vyas University,1962,₹35000/year,360,null,Government
+Rajasthan,Jodhpur,All India Institute of Medical Sciences,Jodhpur,MBBS,AIIMS,2012,₹5000/year,125,null,Central Government
+Rajasthan,Jaipur,SMS Medical College,Jaipur,MBBS,University of Rajasthan,1947,₹15000/year,350,null,Government
+Rajasthan,Jodhpur,Dr. S.N. Medical College,Jodhpur,MBBS,Dr. S.N. Medical College,1965,₹15000/year,200,null,Government
+Rajasthan,Bikaner,Sardar Patel Medical College,Bikaner,MBBS,Rajasthan University of Health Sciences,1965,₹15000/year,150,null,Government
+Rajasthan,Udaipur,RNT Medical College,Udaipur,MBBS,Rajasthan University of Health Sciences,1962,₹15000/year,200,null,Government
+Gujarat,Gandhinagar,Indian Institute of Technology Gandhinagar,Gandhinagar,B.Tech/B.E,IIT Gandhinagar,2008,₹8.5 Lakhs,450,null,Central Government
+Gujarat,Surat,Sardar Vallabhbhai National Institute of Technology,Surat,B.Tech/B.E,NIT Surat,1961,₹5.5 Lakhs,840,null,Central Government
+Gujarat,Ahmedabad,L.D. College of Engineering,Ahmedabad,B.Tech/B.E,Gujarat Technological University,1948,₹30000/year,720,null,Government
+Gujarat,Vadodara,"Faculty of Technology and Engineering, MSU",Vadodara,B.Tech/B.E,MS University Baroda,1949,₹25000/year,600,null,Government
+Gujarat,Rajkot,Government Engineering College,Rajkot,B.Tech/B.E,Gujarat Technological University,1960,₹30000/year,480,null,Government
+Gujarat,Ahmedabad,B.J. Medical College,Ahmedabad,MBBS,Gujarat University,1946,₹18000/year,250,null,Government
+Gujarat,Vadodara,Medical College Baroda,Vadodara,MBBS,MS University Baroda,1946,₹18000/year,200,null,Government
+Gujarat,Surat,Government Medical College,Surat,MBBS,Veer Narmad South Gujarat University,1963,₹18000/year,200,null,Government
+Gujarat,Rajkot,P.D.U. Medical College,Rajkot,MBBS,Saurashtra University,1964,₹18000/year,150,null,Government
+Gujarat,Jamnagar,M.P. Shah Medical College,Jamnagar,MBBS,Saurashtra University,1963,₹18000/year,150,null,Government
+Kerala,Calicut,National Institute of Technology Calicut,Calicut,B.Tech/B.E,NIT Calicut,1961,₹5.5 Lakhs,909,null,Central Government
+Kerala,Thiruvananthapuram,College of Engineering Trivandrum,Thiruvananthapuram,B.Tech/B.E,Kerala University,1939,₹25000/year,600,null,Government
+Kerala,Thrissur,Government Engineering College,Thrissur,B.Tech/B.E,Kerala Technological University,1957,₹25000/year,480,null,Government
+Kerala,Kottayam,Government Engineering College,Barton Hill,B.Tech/B.E,Kerala Technological University,2002,₹25000/year,360,null,Government
+Kerala,Kannur,Government Engineering College,Kannur,B.Tech/B.E,Kerala Technological University,1986,₹25000/year,240,null,Government
+Kerala,Thiruvananthapuram,Government Medical College,Thiruvananthapuram,MBBS,Kerala University of Health Sciences,1951,₹12000/year,200,null,Government
+Kerala,Kottayam,Government Medical College,Kottayam,MBBS,Kerala University of Health Sciences,1982,₹12000/year,150,null,Government
+Kerala,Calicut,Government Medical College,Calicut,MBBS,Kerala University of Health Sciences,1957,₹12000/year,200,null,Government
+Kerala,Thrissur,Government Medical College,Thrissur,MBBS,Kerala University of Health Sciences,1982,₹12000/year,150,null,Government
+Kerala,Alappuzha,Government Medical College,Alappuzha,MBBS,Kerala University of Health Sciences,2014,₹12000/year,100,null,Government
+Tamil Nadu,Chennai,Presidency College,Chennai,B.Sc,University of Madras,1840,₹5000/year,null,null,Government
+Tamil Nadu,Chennai,Loyola College,Chennai,B.Sc,University of Madras,1925,₹15000/year,null,null,Government
+Karnataka,Bangalore,St. Joseph's College,Bangalore,B.Sc,Bangalore University,1882,₹10000/year,null,null,Government
+Maharashtra,Mumbai,St. Xavier's College,Mumbai,B.Sc,Mumbai University,1869,₹8000/year,null,null,Government
+West Bengal,Kolkata,Presidency University,Kolkata,B.Sc,Presidency University,1817,₹6000/year,null,null,Government
+Tamil Nadu,Chennai,Presidency College,Chennai,B.Com,University of Madras,1840,₹4000/year,null,null,Government
+Karnataka,Bangalore,Government First Grade College,Bangalore,B.Com,Bangalore University,1962,₹8000/year,null,null,Government
+Maharashtra,Mumbai,Government College of Commerce and Economics,Mumbai,B.Com,Mumbai University,1960,₹6000/year,null,null,Government
+Uttar Pradesh,Lucknow,Lucknow University,Lucknow,B.Com,Lucknow University,1921,₹5000/year,null,null,Government
+West Bengal,Kolkata,Presidency University,Kolkata,B.Com,Presidency University,1817,₹4000/year,null,null,Government
+Tamil Nadu,Chennai,Anna University School of Architecture,Chennai,B.Arch,Anna University,null,₹50000/year,null,null,Government
+Karnataka,Bangalore,RV College of Architecture,Bangalore,B.Arch,VTU Belgavi,null,₹60000/year,null,null,Government
+Maharashtra,Mumbai,Sir J.J. College of Architecture,Mumbai,B.Arch,Mumbai University,1913,₹25000/year,null,null,Government
+West Bengal,Kolkata,Jadavpur University Faculty of Architecture,Kolkata,B.Arch,Jadavpur University,null,₹20000/year,null,null,Government

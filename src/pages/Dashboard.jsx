@@ -1,18 +1,40 @@
-import React from 'react';
-import Layout from '../components/Layout';
+import React, { useState, useEffect } from 'react';
 import Button from '../components/Button';
 import Card from '../components/Card';
+import ProgressTracker from '../components/Dashboard/ProgressTracker';
+import Timeline from '../components/Dashboard/Timeline';
+import NotificationCenter from '../components/Dashboard/NotificationCenter';
+import { useAuth } from '../hooks/useAuth';
+import { useNotifications } from '../hooks/useNotifications';
 import { useApp } from '../context/AppContext';
 import { careerData, collegesData, scholarshipsData } from '../data/careerData';
 import { getStreamRecommendation, filterCollegesByStream, getUserProgress } from '../utils/quizUtils';
 
-const Dashboard = () => {
+const DashboardPage = () => {
+  const { user } = useAuth();
+  const { notifications, markAsRead } = useNotifications();
   const { state, actions } = useApp();
-  const { user, quizResults } = state;
+  const { quizResults } = state;
+
+  const [dashboardData, setDashboardData] = useState(null);
+
+  useEffect(() => {
+    loadDashboardData();
+  }, []);
+
+  const loadDashboardData = async () => {
+    // Load user progress, upcoming deadlines, recommendations
+    try {
+      const data = await dashboardService.getDashboardData(user.id);
+      setDashboardData(data);
+    } catch (error) {
+      console.error('Error loading dashboard:', error);
+    }
+  };
 
   if (!user.isLoggedIn || !quizResults.completed) {
     return (
-      <Layout title="Dashboard">
+      <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
         <div className="text-center">
           <Card className="max-w-md mx-auto">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
@@ -32,7 +54,7 @@ const Dashboard = () => {
             </div>
           </Card>
         </div>
-      </Layout>
+      </div>
     );
   }
 
@@ -46,8 +68,8 @@ const Dashboard = () => {
   const progress = getUserProgress(user, quizResults);
 
   return (
-    <Layout title="Dashboard" showProgress={true}>
-      <div className="space-y-8">
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
+      <div className="space-y-8 max-w-7xl mx-auto px-4">
         {/* Enhanced User Profile Section */}
         <div className="grid md:grid-cols-3 gap-6">
           {/* Profile Card */}
@@ -142,182 +164,87 @@ const Dashboard = () => {
           </p>
         </div>
 
-        {/* Quick Stats */}
-        <div className="grid md:grid-cols-4 gap-6">
-          <Card className="text-center">
-            <div className="text-3xl mb-2">🎯</div>
-            <div className="text-2xl font-bold text-blue-600">{recommendedStream}</div>
-            <div className="text-sm text-gray-600">Recommended Stream</div>
-          </Card>
-          <Card className="text-center">
-            <div className="text-3xl mb-2">🏫</div>
-            <div className="text-2xl font-bold text-green-600">{relevantColleges.length}</div>
-            <div className="text-sm text-gray-600">Relevant Colleges</div>
-          </Card>
-          <Card className="text-center">
-            <div className="text-3xl mb-2">💰</div>
-            <div className="text-2xl font-bold text-purple-600">{relevantScholarships.length}</div>
-            <div className="text-sm text-gray-600">Scholarships Available</div>
-          </Card>
-          <Card className="text-center">
-            <div className="text-3xl mb-2">📊</div>
-            <div className="text-2xl font-bold text-orange-600">{progress}%</div>
-            <div className="text-sm text-gray-600">Profile Complete</div>
-          </Card>
+        <div className="dashboard-grid">
+          {/* Progress Overview */}
+          <section className="dashboard-card progress-section">
+            <h2>Your Progress</h2>
+            <ProgressTracker 
+              completedSteps={dashboardData?.completedSteps || []}
+              totalSteps={dashboardData?.totalSteps || 5}
+            />
+          </section>
+
+          {/* Quick Actions */}
+          <section className="dashboard-card quick-actions">
+            <h2>Quick Actions</h2>
+            <div className="action-buttons">
+              <Button onClick={() => actions.setCurrentPage('quiz')} className="action-btn">
+                📝 Retake Quiz
+              </Button>
+              <Button onClick={() => actions.setCurrentPage('colleges')} className="action-btn">
+                🏛️ Find Colleges
+              </Button>
+              <Button onClick={() => actions.setCurrentPage('mentor')} className="action-btn">
+                👨‍🏫 Book Mentor
+              </Button>
+              <Button onClick={() => actions.setCurrentPage('scholarships')} className="action-btn">
+                💰 Scholarships
+              </Button>
+            </div>
+          </section>
+
+          {/* Important Timeline */}
+          <section className="dashboard-card timeline-section">
+            <h2>Important Dates</h2>
+            <Timeline events={dashboardData?.upcomingEvents || []} />
+          </section>
+
+          {/* Notifications */}
+          <section className="dashboard-card notifications-section">
+            <h2>Recent Updates</h2>
+            <NotificationCenter 
+              notifications={notifications}
+              onMarkAsRead={markAsRead}
+            />
+          </section>
+
+          {/* Recommended Colleges */}
+          <section className="dashboard-card recommendations">
+            <h2>Recommended for You</h2>
+            <div className="recommendation-cards">
+              {dashboardData?.recommendedColleges?.map(college => (
+                <div key={college.id} className="mini-college-card">
+                  <h4>{college.name}</h4>
+                  <p>{college.location}</p>
+                  <span className="match-score">{college.matchScore}% match</span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* Career Insights */}
+          <section className="dashboard-card insights">
+            <h2>Career Insights</h2>
+            <div className="insights-content">
+              <div className="insight">
+                <h4>Recommended Stream</h4>
+                <p>{dashboardData?.recommendedStream || 'Take quiz to discover'}</p>
+              </div>
+              <div className="insight">
+                <h4>Confidence Level</h4>
+                <div className="confidence-bar">
+                  <div 
+                    className="confidence-fill"
+                    style={{ width: `${dashboardData?.confidenceLevel || 0}%` }}
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-
-        {/* Your Recommendation */}
-        <Card>
-          <h2 className="text-2xl font-bold text-gray-900 mb-4">
-            Your Career Path: {careerPath?.name} {careerPath?.icon}
-          </h2>
-          <p className="text-gray-700 mb-6">
-            {recommendation.description}
-          </p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {careerPath?.degrees.slice(0, 4).map((degree, index) => (
-              <div key={index} className="bg-gray-50 rounded-lg p-4">
-                <h3 className="font-semibold text-gray-900 mb-1">
-                  {degree.name}
-                </h3>
-                <p className="text-sm text-gray-600 mb-2">
-                  {degree.duration}
-                </p>
-                <p className="text-xs text-blue-600">
-                  {degree.careers.slice(0, 2).join(', ')}...
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-4">
-            <Button 
-              onClick={() => actions.setCurrentPage('results')}
-              variant="outline"
-              size="sm"
-            >
-              View Full Details
-            </Button>
-          </div>
-        </Card>
-
-        {/* Colleges Near You */}
-        <Card>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Colleges for {careerPath?.name} Stream 🏫
-            </h2>
-            <Button variant="outline" size="sm">
-              View All
-            </Button>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {relevantColleges.slice(0, 6).map((college) => (
-              <div key={college.id} className="border rounded-lg p-4 hover:shadow-md transition-shadow">
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="font-semibold text-gray-900">
-                    {college.name}
-                  </h3>
-                  {college.admissionOpen && (
-                    <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
-                      Open
-                    </span>
-                  )}
-                </div>
-                <p className="text-sm text-gray-600 mb-2">📍 {college.location}</p>
-                <p className="text-sm text-gray-600 mb-2">💰 {college.fees}</p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <span className="text-yellow-500">⭐</span>
-                    <span className="text-sm text-gray-600 ml-1">{college.rating}</span>
-                  </div>
-                  <Button size="sm" variant="outline">
-                    Details
-                  </Button>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        {/* Scholarships */}
-        <Card>
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold text-gray-900">
-              Scholarships for You 💰
-            </h2>
-            <Button variant="outline" size="sm">
-              View All
-            </Button>
-          </div>
-          <div className="space-y-4">
-            {relevantScholarships.slice(0, 3).map((scholarship) => (
-              <div key={scholarship.id} className="border rounded-lg p-4">
-                <div className="flex items-start justify-between mb-2">
-                  <div>
-                    <h3 className="font-semibold text-gray-900 mb-1">
-                      {scholarship.name}
-                    </h3>
-                    <p className="text-sm text-gray-600 mb-1">
-                      {scholarship.eligibility}
-                    </p>
-                    <p className="text-sm text-red-600">
-                      Deadline: {new Date(scholarship.deadline).toLocaleDateString()}
-                    </p>
-                  </div>
-                  <div className="text-right">
-                    <div className="font-bold text-green-600 mb-2">
-                      {scholarship.amount}
-                    </div>
-                    <Button size="sm">
-                      Apply
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Card>
-
-        {/* Quick Actions */}
-        <div className="grid md:grid-cols-3 gap-6">
-          <Card hover={true} onClick={() => actions.setCurrentPage('quiz')} className="cursor-pointer">
-            <div className="text-center">
-              <div className="text-4xl mb-4">🔄</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Retake Quiz</h3>
-              <p className="text-sm text-gray-600">Update your preferences and get new recommendations</p>
-            </div>
-          </Card>
-          
-          <Card hover={true} className="cursor-pointer">
-            <div className="text-center">
-              <div className="text-4xl mb-4">📞</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Career Counseling</h3>
-              <p className="text-sm text-gray-600">Get personalized guidance from our experts</p>
-            </div>
-          </Card>
-          
-          <Card hover={true} className="cursor-pointer">
-            <div className="text-center">
-              <div className="text-4xl mb-4">📱</div>
-              <h3 className="font-semibold text-gray-900 mb-2">Download App</h3>
-              <p className="text-sm text-gray-600">Get notifications and updates on the go</p>
-            </div>
-          </Card>
-        </div>
-
-        {/* Progress Encouragement */}
-        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 text-center">
-          <div className="text-4xl mb-4">🎉</div>
-          <h3 className="text-xl font-bold text-gray-900 mb-2">
-            You're on the right track!
-          </h3>
-          <p className="text-gray-700">
-            Your profile is {progress}% complete. Keep exploring to discover more opportunities!
-          </p>
-        </Card>
       </div>
-    </Layout>
+    </div>
   );
 };
 
-export default Dashboard;
+export default DashboardPage;

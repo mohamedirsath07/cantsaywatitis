@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { useApp } from '../context/AppContext';
@@ -12,7 +11,7 @@ const Results = () => {
 
   if (!quizResults.completed) {
     return (
-      <Layout title="Quiz Results">
+      <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
         <div className="text-center">
           <Card className="max-w-md mx-auto">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
@@ -23,7 +22,7 @@ const Results = () => {
             </Button>
           </Card>
         </div>
-      </Layout>
+      </div>
     );
   }
 
@@ -45,8 +44,8 @@ const Results = () => {
   };
 
   return (
-    <Layout title="Your Results" showProgress={true}>
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
+      <div className="max-w-4xl mx-auto px-4">
         {/* Congratulations Header */}
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🎉</div>
@@ -155,7 +154,7 @@ const Results = () => {
         </Card>
 
         {/* Action Buttons */}
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="flex flex-col sm:flex-row gap-8">
           {!user.isLoggedIn ? (
             <>
               <Button 
@@ -231,7 +230,7 @@ const Results = () => {
           </Card>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 

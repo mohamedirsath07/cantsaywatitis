@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { useApp } from '../context/AppContext';
@@ -12,7 +11,7 @@ const Results = () => {
 
   if (!quizResults.completed) {
     return (
-      <Layout title="Quiz Results">
+      <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
         <div className="text-center">
           <Card className="max-w-md mx-auto">
             <h2 className="text-xl font-bold text-gray-900 mb-4">
@@ -23,7 +22,7 @@ const Results = () => {
             </Button>
           </Card>
         </div>
-      </Layout>
+      </div>
     );
   }
 
@@ -33,6 +32,10 @@ const Results = () => {
 
   const handleViewDashboard = () => {
     actions.setCurrentPage('dashboard');
+  };
+
+  const handleViewStreamColleges = () => {
+    actions.setCurrentPage('streamColleges');
   };
 
   const handleRetakeQuiz = () => {
@@ -45,8 +48,8 @@ const Results = () => {
   };
 
   return (
-    <Layout title="Your Results" showProgress={true}>
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
+      <div className="max-w-4xl mx-auto px-4">
         {/* Congratulations Header */}
         <div className="text-center mb-8">
           <div className="text-6xl mb-4">🎉</div>
@@ -129,7 +132,7 @@ const Results = () => {
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             What's Next? 🚀
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-4 gap-6">
             <div className="text-center">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mb-4 mx-auto">
                 🏫
@@ -151,6 +154,13 @@ const Results = () => {
               <h3 className="font-semibold mb-2">Study Plans</h3>
               <p className="text-gray-600 text-sm">Get personalized study plans and preparation tips</p>
             </div>
+            <div className="text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center text-orange-600 text-2xl mb-4 mx-auto">
+                🎯
+              </div>
+              <h3 className="font-semibold mb-2">Stream Colleges</h3>
+              <p className="text-gray-600 text-sm">Browse colleges from comprehensive government dataset for your stream</p>
+            </div>
           </div>
         </Card>
 
@@ -163,6 +173,14 @@ const Results = () => {
             icon="📊"
           >
             View Dashboard
+          </Button>
+          <Button 
+            onClick={handleViewStreamColleges}
+            className="flex-1"
+            size="lg"
+            icon="🎯"
+          >
+            View Stream Colleges
           </Button>
           <Button 
             onClick={handleRetakeQuiz}
@@ -185,7 +203,7 @@ const Results = () => {
           </Card>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 

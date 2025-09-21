@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Layout from '../components/Layout';
 import Button from '../components/Button';
 import Card from '../components/Card';
 import { useApp } from '../context/AppContext';
@@ -306,26 +305,26 @@ const Profile = () => {
   };
 
   return (
-    <Layout title="Setup Profile" showProgress={true}>
+    <div className="min-h-screen py-8" style={{ background: 'linear-gradient(135deg, #eff6ff 0%, #ffffff 50%, #f3e8ff 100%)' }}>
       <div className="max-w-6xl mx-auto px-4">
-        <Card>
-          <div className="text-center mb-8">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+        <div className="profile-form">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
               Let's Get to Know You! 👋
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-600 text-lg">
               Tell us a bit about yourself so we can provide personalized recommendations
             </p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-8">
             {/* Personal Information Section */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-6">Personal Information</h3>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <div className="form-section">
+              <h3 className="form-section-title">Personal Information</h3>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 {/* Name Input */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="form-group">
+                  <label className="form-label">
                     Full Name *
                   </label>
                   <input
@@ -333,19 +332,19 @@ const Profile = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                      errors.name ? 'border-red-300' : 'border-gray-300'
+                    className={`form-input ${
+                      errors.name ? 'border-red-500' : ''
                     }`}
                     placeholder="Enter your full name"
                   />
                   {errors.name && (
-                    <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+                    <p className="text-red-500 text-sm mt-2">{errors.name}</p>
                   )}
                 </div>
 
                 {/* Date of Birth */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="form-group">
+                  <label className="form-label">
                     Date of Birth *
                   </label>
                   <input
@@ -353,32 +352,32 @@ const Profile = () => {
                     name="dateOfBirth"
                     value={formData.dateOfBirth}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                      errors.dateOfBirth ? 'border-red-300' : 'border-gray-300'
+                    className={`form-input ${
+                      errors.dateOfBirth ? 'border-red-500' : ''
                     }`}
                   />
                   {errors.dateOfBirth && (
-                    <p className="text-red-500 text-sm mt-1">{errors.dateOfBirth}</p>
+                    <p className="text-red-500 text-sm mt-2">{errors.dateOfBirth}</p>
                   )}
                 </div>
               </div>
             </div>
 
             {/* Academic Information Section */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-6">Academic Information</h3>
+            <div className="form-section">
+              <h3 className="form-section-title">Academic Information</h3>
               
               {/* Class Selection */}
-              <div className="mb-6">
-                <label className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="form-group">
+                <label className="form-label">
                   What class are you in? *
                 </label>
                 <select
                   name="class"
                   value={formData.class}
                   onChange={handleInputChange}
-                  className={`w-full lg:w-1/2 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                    errors.class ? 'border-red-300' : 'border-gray-300'
+                  className={`form-select lg:w-1/2 ${
+                    errors.class ? 'border-red-500' : ''
                   }`}
                 >
                   <option value="">Select your class</option>
@@ -389,25 +388,25 @@ const Profile = () => {
                   ))}
                 </select>
                 {errors.class && (
-                  <p className="text-red-500 text-sm mt-1">{errors.class}</p>
+                  <p className="text-red-500 text-sm mt-2">{errors.class}</p>
                 )}
               </div>
 
               {/* Board and Stream Selection for 11th/12th */}
               {(formData.class === '11th' || formData.class === '12th') && (
-                <div className="space-y-6">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="space-y-8">
+                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     {/* Board Selection */}
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <div className="form-group">
+                      <label className="form-label">
                         Select Your Board *
                       </label>
                       <select
                         name="board"
                         value={formData.board}
                         onChange={handleInputChange}
-                        className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                          errors.board ? 'border-red-300' : 'border-gray-300'
+                        className={`form-select ${
+                          errors.board ? 'border-red-500' : ''
                         }`}
                       >
                         <option value="">Select your board</option>
@@ -418,22 +417,22 @@ const Profile = () => {
                         ))}
                       </select>
                       {errors.board && (
-                        <p className="text-red-500 text-sm mt-1">{errors.board}</p>
+                        <p className="text-red-500 text-sm mt-2">{errors.board}</p>
                       )}
                     </div>
 
                     {/* Stream Selection */}
                     {formData.board && (
-                      <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                      <div className="form-group">
+                        <label className="form-label">
                           Select Your Stream *
                         </label>
                         <select
                           name="stream"
                           value={formData.stream}
                           onChange={handleInputChange}
-                          className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                            errors.stream ? 'border-red-300' : 'border-gray-300'
+                          className={`form-select ${
+                            errors.stream ? 'border-red-500' : ''
                           }`}
                         >
                           <option value="">Select your stream</option>
@@ -444,7 +443,7 @@ const Profile = () => {
                           ))}
                         </select>
                         {errors.stream && (
-                          <p className="text-red-500 text-sm mt-1">{errors.stream}</p>
+                          <p className="text-red-500 text-sm mt-2">{errors.stream}</p>
                         )}
                       </div>
                     )}
@@ -532,14 +531,14 @@ const Profile = () => {
             </div>
 
             {/* Contact Information Section */}
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <h3 className="text-lg font-semibold text-gray-900 mb-6">Contact Information</h3>
+            <div className="form-section">
+              <h3 className="form-section-title">Contact Information</h3>
               
-              <div className="space-y-6">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="space-y-8">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                   {/* Email Input */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-group">
+                    <label className="form-label">
                       Email Address *
                     </label>
                     <input
@@ -547,19 +546,19 @@ const Profile = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                        errors.email ? 'border-red-300' : 'border-gray-300'
+                      className={`form-input ${
+                        errors.email ? 'border-red-500' : ''
                       }`}
                       placeholder="Enter your email address"
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+                      <p className="text-red-500 text-sm mt-2">{errors.email}</p>
                     )}
                   </div>
 
                   {/* Phone Number Input */}
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <div className="form-group">
+                    <label className="form-label">
                       Phone Number *
                     </label>
                     <input
@@ -567,20 +566,20 @@ const Profile = () => {
                       name="phoneNumber"
                       value={formData.phoneNumber}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                        errors.phoneNumber ? 'border-red-300' : 'border-gray-300'
+                      className={`form-input ${
+                        errors.phoneNumber ? 'border-red-500' : ''
                       }`}
                       placeholder="Enter your 10-digit phone number"
                     />
                     {errors.phoneNumber && (
-                      <p className="text-red-500 text-sm mt-1">{errors.phoneNumber}</p>
+                      <p className="text-red-500 text-sm mt-2">{errors.phoneNumber}</p>
                     )}
                   </div>
                 </div>
 
                 {/* Location Input */}
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="form-group">
+                  <label className="form-label">
                     Location *
                   </label>
                   <input
@@ -588,20 +587,20 @@ const Profile = () => {
                     name="location"
                     value={formData.location}
                     onChange={handleInputChange}
-                    className={`w-full lg:w-1/2 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors ${
-                      errors.location ? 'border-red-300' : 'border-gray-300'
+                    className={`form-input lg:w-1/2 ${
+                      errors.location ? 'border-red-500' : ''
                     }`}
                     placeholder="Enter your city, state"
                   />
                   {errors.location && (
-                    <p className="text-red-500 text-sm mt-1">{errors.location}</p>
+                    <p className="text-red-500 text-sm mt-2">{errors.location}</p>
                   )}
                 </div>
               </div>
             </div>
 
             {/* Submit Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+            <div className="flex flex-col sm:flex-row gap-6 pt-8">
               <Button 
                 type="button"
                 variant="outline"
@@ -619,11 +618,11 @@ const Profile = () => {
               </Button>
             </div>
           </form>
-        </Card>
+        </div>
 
         {/* Help Text */}
-        <div className="mt-6 text-center">
-          <p className="text-sm text-gray-500">
+        <div className="mt-8 text-center">
+          <p className="text-gray-500">
             {formData.class === '10th' 
               ? "Complete the quiz to get personalized stream recommendations for Class 11th!" 
               : "Don't worry, you can always update your profile later!"
@@ -631,7 +630,7 @@ const Profile = () => {
           </p>
         </div>
       </div>
-    </Layout>
+    </div>
   );
 };
 
